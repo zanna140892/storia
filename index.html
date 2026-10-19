@@ -1,480 +1,312 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La situazione dei Balcani alla vigilia della Prima guerra mondiale</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        academic: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            accent: '#2563eb',
-                            gold: '#d97706'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Lora', 'Georgia', 'serif'],
-                        sans: ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Lora', Georgia, serif;
-        }
-        .prose-academic p {
-            margin-bottom: 1.25rem;
-            line-height: 1.8;
-            text-align: justify;
-        }
-        .sticky-nav {
-            backdrop-filter: blur(8px);
-            background-color: rgba(15, 23, 42, 0.95);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdun e la Somme, 1916: quanti morti, quante perdite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-canvas:#f6f5f1;--bg-card:#fff;--bg-subtle:#eae7e1;--text-main:#1f2429;--text-muted:#57606a;--border:#d0c9be;
+--c-dead:#872338;--c-dead-light:#ab334b;--c-losses-other:#6c757d;--c-french:#2b5c8f;--c-french-sub:#4978ad;
+--c-german:#476052;--c-german-sub:#5f7a6b;--c-british:#877448;--c-british-sub:#a49161;--c-accent:#c4820a;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#2b2e33;color:var(--text-main);padding:24px 12px;line-height:1.45;display:flex;justify-content:center;-webkit-font-smoothing:antialiased}
+.sheet{width:100%;max-width:1080px;background:var(--bg-canvas);padding:40px 44px;border-radius:4px;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+header{border-bottom:2px solid var(--border);padding-bottom:24px;margin-bottom:24px}
+.badge-kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;background:#1f2429;padding:4px 10px;border-radius:2px;margin-bottom:12px}
+h1{font-family:'Cinzel',serif;font-size:31px;line-height:1.2;color:#111418;letter-spacing:.02em;margin-bottom:12px}
+.definition-box{background:var(--bg-card);border-left:5px solid var(--c-dead);padding:12px 18px;border-radius:0 4px 4px 0;border:1px solid var(--border);border-left:5px solid var(--c-dead);font-size:13.5px;color:#262b30}
+.dead-tag{color:var(--c-dead);text-transform:uppercase;letter-spacing:.05em}
+.losses-tag{color:#2b3137;text-transform:uppercase;letter-spacing:.05em}
+.legend-bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;background:#eeebe3;border:1px solid var(--border);border-radius:4px;padding:10px 16px;margin-top:16px;font-size:12px}
+.legend-item{display:inline-flex;align-items:center;gap:6px;font-weight:500}
+.swatch{width:14px;height:14px;border-radius:2px;display:inline-block}
+.section-title{font-size:13px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:20px}
+.battle-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;border-bottom:1px solid #eee;padding-bottom:10px}
+.battle-name{font-size:20px;font-weight:700;color:#15181c}
+.battle-duration{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--bg-subtle);padding:3px 8px;border-radius:3px;font-weight:600;white-space:nowrap}
+.battle-dates{font-size:12.5px;color:var(--text-muted);margin-top:2px}
+.svg-container{width:100%;height:auto;display:block}
+text{font-family:'Inter',system-ui,sans-serif}
+.mono-num{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px}
+.focus-card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.focus-card h3{font-size:14px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.focus-metric{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;line-height:1.1;margin:8px 0 4px}
+.focus-desc{font-size:12px;color:var(--text-muted);line-height:1.4}
+.context-strip{background:#ece9e2;border:1px solid var(--border);border-radius:4px;padding:16px 20px;margin-bottom:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.context-item{border-right:1px solid #d4cdc2;padding-right:14px}
+.context-item:last-child{border-right:none;padding-right:0}
+.ci-num{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:#191c20}
+.ci-label{font-size:11.5px;color:var(--text-muted);margin-top:4px}
+footer{border-top:1px solid var(--border);padding-top:18px;font-size:11px;color:var(--text-muted);display:grid;grid-template-columns:1.2fr 1fr;gap:24px}
+.methodology-text{line-height:1.5}
+.sources-list{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.source-tag{background:#fff;border:1px solid var(--border);padding:3px 7px;border-radius:3px;font-size:10.5px;color:#333940}
+.missing-data-badge{display:inline-block;background:#fdf2f2;color:#991b1b;border:1px dashed #f87171;padding:4px 8px;border-radius:3px;font-size:10.5px;font-weight:600;white-space:nowrap}
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}
+.action-btn{background:#fff;border:1px solid var(--border);padding:6px 12px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;color:#1f2429}
+.action-btn:hover{background:#f0ede6}
+.footnote{font-size:11.5px;color:var(--text-muted);margin-top:8px}
+@media print{body{background:#fff;padding:0}.toolbar{display:none}.sheet{box-shadow:none;max-width:100%;padding:20mm}@page{size:A3 portrait;margin:10mm}}
+@media (max-width:900px){.two-col-grid,.focus-grid,.context-strip,footer{grid-template-columns:1fr}.context-item{border-right:none;border-bottom:1px solid var(--border);padding-bottom:10px}.sheet{padding:24px 18px}.section-title{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
-<body class="bg-academic-50 text-academic-800 antialiased selection:bg-academic-accent selection:text-white">
+<body>
+<div class="sheet">
 
-    <header class="bg-academic-900 text-white shadow-xl relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-6xl mx-auto px-6 py-16 relative z-10 text-center">
-            <span class="inline-block px-4 py-1 mb-4 text-xs font-semibold tracking-widest uppercase bg-academic-accent/20 text-blue-300 rounded-full border border-blue-500/35">
-                Manuale Digitale di Storia Contemporanea • Classe Quinta Superiore
-            </span>
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-100">
-                La situazione dei Balcani alla vigilia della Prima guerra mondiale
-            </h1>
-            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
-                Analisi geopolitica, disgregazione imperiale e dinamiche nazionalistiche che trasformarono la penisola balcanica nella miccia d'Europa.
-            </p>
-        </div>
-    </header>
+<div class="toolbar">
+<button class="action-btn" onclick="window.print()">Stampa formato A3 / Esporta PDF</button>
+</div>
 
-    <nav class="sticky top-0 z-50 sticky-nav text-white shadow-md border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16 overflow-x-auto whitespace-nowrap scrollbar-none">
-            <a href="#quadro" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2">1. Quadro d'insieme</a>
-            <a href="#berlino" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2">2. Congresso di Berlino</a>
-            <a href="#nazionalismi" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2">3. Nazionalismi e Bosnia</a>
-            <a href="#guerre" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2 text-amber-300">4. Guerre balcaniche e Cartina</a>
-            <a href="#tensioni" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2">5. Tensioni e Grande Serbia</a>
-            <a href="#timeline" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2">Timeline</a>
-            <a href="#glossario" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2">Glossario</a>
-            <a href="#verifica" class="text-xs md:text-sm font-medium hover:text-blue-400 transition-colors px-3 py-2">Autoverifica</a>
-        </div>
-    </nav>
+<header>
+<div class="badge-kicker">Data Visualization Storica • 1916 sul Fronte Occidentale</div>
+<h1>Verdun e la Somme, 1916: quanti morti, quante perdite</h1>
+<div class="definition-box">
+<strong>Differenza storiografica fondamentale:</strong>
+I <strong class="dead-tag">MORTI</strong> comprendono esclusivamente i caduti confermati sul campo o deceduti per le ferite riportate.
+Le <strong class="losses-tag">PERDITE COMPLESSIVE</strong> misurano la riduzione totale degli effettivi combattenti e sommano insieme:
+<em>caduti, feriti, dispersi e prigionieri di guerra</em>.
+Per rigore, la parola «morti» non va usata per indicare il totale delle perdite.
+</div>
+<div class="legend-bar">
+<span style="font-weight:700;color:#111">LEGENDA:</span>
+<div class="legend-item"><span class="swatch" style="background:var(--c-dead)"></span><strong>Morti / Caduti</strong></div>
+<div class="legend-item"><span class="swatch" style="background:var(--c-losses-other)"></span><strong>Altre perdite</strong> (feriti, dispersi, prigionieri)</div>
+<div class="legend-item"><span class="swatch" style="background:var(--c-french)"></span>Francesi</div>
+<div class="legend-item"><span class="swatch" style="background:var(--c-german)"></span>Tedeschi</div>
+<div class="legend-item"><span class="swatch" style="background:var(--c-british)"></span>Britannici e imperiali</div>
+<div class="legend-item" style="margin-left:auto;color:var(--text-muted)">▰▰ Parte tratteggiata = intervallo tra stima minima e massima</div>
+</div>
+</header>
 
-    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
+<div class="section-title">
+<span>1. Perdite complessive per esercito (morti + feriti + dispersi + prigionieri)</span>
+<span>Stessa scala: 0 – 600.000</span>
+</div>
 
-        <!-- Sezione 1 -->
-        <section id="quadro" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12 transition-all hover:shadow-md">
-            <div class="flex items-center space-x-3 mb-6">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-academic-900 text-white font-bold text-lg">1</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-academic-900">Il quadro d'insieme: i Balcani come polveriera d'Europa</h2>
-            </div>
-            <div class="prose-academic text-slate-700 text-base md:text-lg">
-                <p>
-                    All'alba del XX secolo, la penisola balcanica rappresentava il nodo gordiano della geopolitica europea, un'area di transizione e di forte frizione in cui convergevano le mire espansionistiche delle grandi potenze continentali e le aspirazioni autonomistiche delle popolazioni locali. Definita storicamente come la <strong>"polveriera d'Europa"</strong>, la regione scontava le conseguenze strutturali del progressivo, inarrestabile <strong>declino dell'impero ottomano</strong>, il "grande malato" d'Europa, la cui ritirata territoriale ed amministrativa lasciava un profondo <strong>vuoto di potere</strong>.
-                </p>
-                <p>
-                    Questo vuoto non rimase inattivo: esso agì da catalizzatore per le ambizioni convergenti e divergenti dell'<strong>impero austro-ungarico</strong> e dell'<strong>impero russo</strong>. Vienna, preoccupata dalla disgregazione dei propri confini interni a causa del fermento delle minoranze slave, mirava a consolidare la propria sfera di influenza ad sud, bloccando l'accesso russo agli stretti marittimi strategici. Per contro, San Pietroburgo si ergeva a protettrice dei popoli slavi meridionali in virtù del legame panslavista, mirando a garantirsi uno sbocco sui mari caldi. La combinazione di queste rivalità imperialistiche con l'ascesa dei nazionalismi locali rese la regione l'epicentro della fragilità strutturale del sistema internazionale europeo.
-                </p>
-            </div>
-        </section>
+<div class="two-col-grid">
+<div class="card">
+<div class="battle-header">
+<div><div class="battle-name">Battaglia di Verdun</div><div class="battle-dates">21 febbraio – 18 dicembre 1916</div></div>
+<div class="battle-duration">302 giorni</div>
+</div>
+<p style="font-size:13px;margin-bottom:14px;color:#333">Perdite complessive totali: <strong style="font-family:'JetBrains Mono';font-size:14px">circa 700.000 – 750.000</strong></p>
+<svg class="svg-container" viewBox="0 0 520 210" aria-label="Perdite complessive a Verdun per esercito">
+<line x1="110" y1="20" x2="110" y2="170" stroke="#e0ded8"/>
+<line x1="220" y1="20" x2="220" y2="170" stroke="#e0ded8" stroke-dasharray="2 2"/>
+<line x1="330" y1="20" x2="330" y2="170" stroke="#e0ded8" stroke-dasharray="2 2"/>
+<line x1="440" y1="20" x2="440" y2="170" stroke="#e0ded8"/>
+<text x="110" y="185" font-size="10" fill="#666" text-anchor="middle">0</text>
+<text x="220" y="185" font-size="10" fill="#666" text-anchor="middle">200k</text>
+<text x="330" y="185" font-size="10" fill="#666" text-anchor="middle">400k</text>
+<text x="440" y="185" font-size="10" fill="#666" text-anchor="middle">600k</text>
+<text x="275" y="202" font-size="10" fill="#888" text-anchor="middle">Soldati fuori combattimento</text>
+<text x="102" y="55" font-size="11" font-weight="600" text-anchor="end">Francesi</text>
+<rect x="110" y="40" width="193" height="22" rx="3" fill="var(--c-french)"/>
+<rect x="303" y="40" width="27" height="22" rx="3" fill="var(--c-french-sub)" opacity=".65" stroke="var(--c-french)" stroke-dasharray="3 2"/>
+<text x="338" y="55" class="mono-num">351.000 – 400.000</text>
+<text x="102" y="115" font-size="11" font-weight="600" text-anchor="end">Tedeschi</text>
+<rect x="110" y="100" width="181.5" height="22" rx="3" fill="var(--c-german)"/>
+<rect x="291.5" y="100" width="11" height="22" rx="3" fill="var(--c-german-sub)" opacity=".65" stroke="var(--c-german)" stroke-dasharray="3 2"/>
+<text x="312" y="115" class="mono-num">330.000 – 350.000</text>
+</svg>
+<div class="footnote" style="background:var(--bg-subtle);padding:8px 10px;border-radius:4px"><strong>Logoramento:</strong> circa 2.300–2.500 perdite complessive al giorno su un fronte di pochi chilometri.</div>
+</div>
 
-        <!-- Sezione 2 -->
-        <section id="berlino" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12 transition-all hover:shadow-md">
-            <div class="flex items-center space-x-3 mb-6">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-academic-900 text-white font-bold text-lg">2</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-academic-900">Il congresso di Berlino (1878) e il nuovo assetto regionale</h2>
-            </div>
-            <div class="prose-academic text-slate-700 text-base md:text-lg">
-                <p>
-                    Le tensioni croniche nella penisola trovarono una prima, parziale ricomposizione diplomatica nel <strong>congresso di Berlino del 1878</strong>, convocato dal cancelliere tedesco Otto von Bismarck per ridimensionare i vantaggi ottenuti dalla Russia a seguito della guerra russo-turca. Il trattato ridefinì profondamente la carta geografica balcanica: fu riconosciuta la piena <strong>indipendenza di Romania, Serbia e Montenegro</strong>, mentre la Bulgaria ottenne un'autonomia formale seppur frammentata.
-                </p>
-                <p>
-                    Tuttavia, il congresso lasciò insoluti nodi cruciali. L'impero ottomano manteneva ancora una <strong>residua presenza ottomana</strong> nei Balcani meridionali (Macedonia, Tracia, Albania), ma la clausola di gran lunga più gravida di conseguenze future fu l'affidamento all'impero austro-ungarico dell'<strong>amministrazione temporanea della Bosnia-Erzegovina</strong>, regione formalmente ancora soggetta alla sovranità del sultano. Questa soluzione ibrida acuì il risentimento serbo e pose le premesse per la futura annessione unilaterale asburgica.
-                </p>
-            </div>
-        </section>
+<div class="card">
+<div class="battle-header">
+<div><div class="battle-name">Battaglia della Somme</div><div class="battle-dates">1° luglio – 18 novembre 1916</div></div>
+<div class="battle-duration">141 giorni</div>
+</div>
+<p style="font-size:13px;margin-bottom:14px;color:#333">Perdite complessive totali: <strong style="font-family:'JetBrains Mono';font-size:14px">circa 1,05 – 1,12 milioni</strong></p>
+<svg class="svg-container" viewBox="0 0 520 210" aria-label="Perdite complessive alla Somme per esercito">
+<line x1="110" y1="20" x2="110" y2="170" stroke="#e0ded8"/>
+<line x1="220" y1="20" x2="220" y2="170" stroke="#e0ded8" stroke-dasharray="2 2"/>
+<line x1="330" y1="20" x2="330" y2="170" stroke="#e0ded8" stroke-dasharray="2 2"/>
+<line x1="440" y1="20" x2="440" y2="170" stroke="#e0ded8"/>
+<text x="110" y="185" font-size="10" fill="#666" text-anchor="middle">0</text>
+<text x="220" y="185" font-size="10" fill="#666" text-anchor="middle">200k</text>
+<text x="330" y="185" font-size="10" fill="#666" text-anchor="middle">400k</text>
+<text x="440" y="185" font-size="10" fill="#666" text-anchor="middle">600k</text>
+<text x="275" y="202" font-size="10" fill="#888" text-anchor="middle">Soldati fuori combattimento</text>
+<text x="102" y="45" font-size="11" font-weight="600" text-anchor="end">Tedeschi</text>
+<rect x="110" y="32" width="239" height="18" rx="3" fill="var(--c-german)"/>
+<rect x="349" y="32" width="36" height="18" rx="3" fill="var(--c-german-sub)" opacity=".65" stroke="var(--c-german)" stroke-dasharray="3 2"/>
+<text x="392" y="45" class="mono-num">435.000 – 500.000</text>
+<text x="102" y="85" font-size="11" font-weight="600" text-anchor="end">Britannici</text>
+<rect x="110" y="72" width="228" height="18" rx="3" fill="var(--c-british)"/>
+<rect x="338" y="72" width="3" height="18" rx="1" fill="var(--c-british-sub)" opacity=".65" stroke="var(--c-british)"/>
+<text x="350" y="85" class="mono-num">415.000 – 420.000</text>
+<text x="102" y="125" font-size="11" font-weight="600" text-anchor="end">Francesi</text>
+<rect x="110" y="112" width="106.7" height="18" rx="3" fill="var(--c-french)"/>
+<rect x="216.7" y="112" width="5" height="18" rx="1" fill="var(--c-french-sub)" opacity=".65" stroke="var(--c-french)"/>
+<text x="230" y="125" class="mono-num">194.000 – 203.000</text>
+</svg>
+<div class="footnote" style="background:var(--bg-subtle);padding:8px 10px;border-radius:4px"><strong>Coalizione:</strong> una grande offensiva anglo-francese contro l'esercito tedesco, con oltre 3 milioni di uomini impegnati.</div>
+</div>
+</div>
 
-        <!-- Sezione 3 -->
-        <section id="nazionalismi" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12 transition-all hover:shadow-md">
-            <div class="flex items-center space-x-3 mb-6">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-academic-900 text-white font-bold text-lg">3</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-academic-900">I nazionalismi balcanici e l'annessione della Bosnia-Erzegovina (1908)</h2>
-            </div>
-            <div class="prose-academic text-slate-700 text-base md:text-lg">
-                <p>
-                    All'interno della penisola, i <strong>nazionalismi balcanici</strong> si svilupparono in forme esasperate, alimentati da rivendicazioni storiche sovrapposte, frammentazione etnica e assenza di confini coincidenti con omogeneità linguistiche o culturali. La complessa coabitazione di serbi, croati, bosniaci, musulmani, albanesi e bulgari trasformò la <strong>questione delle nazionalità</strong> in una polveriera pronta a detonare.
-                </p>
-                <p>
-                    L'evento che lacerò definitivamente il fragile equilibrio fu la <strong>crisi bosniaca del 1908</strong>, innescata dall'<strong>annessione austriaca della Bosnia-Erzegovina</strong>. L'Impero austro-ungarico, approfittando della debolezza ottomana successiva alla rivoluzione dei Giovani Turchi, decise di trasformare l'amministrazione temporanea stabilita nel 1878 in sovranità piena. Tale mossa unilaterale violò i trattati internazionali, umiliò profondamente la Serbia — che ambiva a unificare le popolazioni slave meridionali — e provocò una grave crisi diplomatica internazionale, scontentando la Russia e irrigidendo le alleanze contrapposte.
-                </p>
-            </div>
-        </section>
+<div class="section-title">
+<span>2. «Quanti morti» (solo caduti)</span>
+<span>Scala 0 – 200.000</span>
+</div>
 
-        <!-- Sezione 4 & Cartina -->
-        <section id="guerre" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12 transition-all hover:shadow-md">
-            <div class="flex items-center space-x-3 mb-6">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-academic-900 text-white font-bold text-lg">4</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-academic-900">Le due guerre balcaniche (1912-1913) e l'evoluzione territoriale</h2>
-            </div>
-            <div class="prose-academic text-slate-700 text-base md:text-lg mb-8">
-                <p>
-                    Nel biennio 1912-1913 il conflitto latente esplose in due successive campagne militari che ridisegnarono definitivamente i rapporti di forza regionali. Nella <strong>prima guerra balcanica (ottobre 1912 - maggio 1913)</strong>, la <strong>Lega balcanica</strong> — coalizione promossa dalla Russia e formata da Serbia, Montenegro, Grecia e Bulgaria — sferrò un attacco coordinato contro l'impero ottomano. Travolto su tutti i fronti, l'esercito ottomano fu costretto a cedere tutti i suoi territori europei, fatta eccezione per Istanbul e la Tracia orientale.
-                </p>
-                <p>
-                    Tuttavia, il fallimento degli accordi sulla spartizione della preda territoriale, in particolare riguardo alla <strong>contesa sulla Macedonia</strong> tra Serbia, Grecia e Bulgaria, innescò la <strong>seconda guerra balcanica (giugno - agosto 1913)</strong>. La Bulgaria, insoddisfatta delle acquisizioni, aggredì i vecchi alleati serbi e greci, ma fu rapidamente sopraffatta da una coalizione che comprendeva anche la Romania e lo stesso impero ottomano. Sconfitta e costretta a massicce cessioni territoriali, la Bulgaria uscì dal conflitto profondamente frustrata. Contestualmente, tra il 1912 e il 1914 fu sancita la <strong>nascita dell'Albania</strong>, il cui riconoscimento internazionale definitivo giunse per volere di Vienna e Roma, intenzionate a sbarrare alla Serbia l'accesso all'Adriatico.
-                </p>
-            </div>
+<div class="card" style="margin-bottom:24px">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px">
+<p style="font-size:13.5px;color:#222;max-width:720px">Dati sui <strong>soli morti</strong>. Per la Somme, britannici e francesi sono forniti come «morti o dispersi» (*). Tutte le barre hanno la stessa scala.</p>
+<span style="font-family:'JetBrains Mono';font-size:11px;color:var(--c-dead);font-weight:700;background:#fbeff1;padding:3px 8px;border-radius:3px;border:1px solid #f2cfd6;white-space:nowrap">SOLO CADUTI</span>
+</div>
+<svg class="svg-container" viewBox="0 0 920 230" aria-label="Morti a Verdun e alla Somme">
+<g stroke="#e2ded7">
+<line x1="220" y1="20" x2="220" y2="190"/>
+<line x1="380" y1="20" x2="380" y2="190" stroke-dasharray="3 3"/>
+<line x1="540" y1="20" x2="540" y2="190" stroke-dasharray="3 3"/>
+<line x1="700" y1="20" x2="700" y2="190" stroke-dasharray="3 3"/>
+<line x1="860" y1="20" x2="860" y2="190"/>
+</g>
+<text x="220" y="206" font-size="10" fill="#666" text-anchor="middle">0</text>
+<text x="380" y="206" font-size="10" fill="#666" text-anchor="middle">50.000</text>
+<text x="540" y="206" font-size="10" fill="#666" text-anchor="middle">100.000</text>
+<text x="700" y="206" font-size="10" fill="#666" text-anchor="middle">150.000</text>
+<text x="860" y="206" font-size="10" fill="#666" text-anchor="middle">200.000</text>
 
-            <div class="my-10 bg-slate-900 text-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-800">
-                <div class="text-center mb-6">
-                    <span class="text-xs uppercase tracking-widest text-blue-400 font-semibold">Documento Cartografico Ufficiale</span>
-                    <h3 class="text-xl md:text-2xl font-bold mt-1 text-slate-100">Gli equilibri territoriali nei Balcani dal 1878 al 1913</h3>
-                    <p class="text-slate-400 text-sm mt-1">Confronto fra l'assetto post-Congresso di Berlino (1878) e quello successivo alle guerre balcaniche (1913)</p>
-                </div>
+<text x="208" y="44" font-size="11.5" font-weight="600" text-anchor="end">Verdun: Francesi</text>
+<rect x="220" y="32" width="480" height="16" rx="2" fill="var(--c-dead)"/>
+<rect x="700" y="32" width="41.6" height="16" rx="2" fill="var(--c-dead-light)" opacity=".75" stroke="var(--c-dead)" stroke-dasharray="2 1"/>
+<text x="750" y="45" class="mono-num" fill="var(--c-dead)">circa 150.000 – 163.000</text>
 
-                <div class="bg-black/40 p-4 rounded-xl border border-slate-700/85 flex justify-center items-center overflow-hidden">
-                    <img src="image_571e5a.jpg" alt="Equilibri territoriali nei Balcani dal 1878 al 1913" class="w-full max-h-[550px] object-contain rounded-lg shadow-md transition-transform duration-300 hover:scale-[1.01] cursor-pointer" onclick="openImageModal(this.src)" title="Clicca per ingrandire la cartina">
-                </div>
-                <p class="text-center text-xs text-slate-400 mt-2 italic">Clicca sull'immagine per ingrandire la visualizzazione della cartina.</p>
+<text x="208" y="80" font-size="11.5" font-weight="600" text-anchor="end">Verdun: Tedeschi</text>
+<rect x="220" y="68" width="457.6" height="16" rx="2" fill="var(--c-dead)"/>
+<text x="686" y="81" class="mono-num" fill="var(--c-dead)">circa 143.000</text>
 
-                <!-- Didascalia Guidata e Dettagliata -->
-                <div class="mt-6 bg-slate-800/90 p-6 rounded-xl border border-slate-700 text-slate-300 text-sm leading-relaxed space-y-4">
-                    <h4 class="font-bold text-blue-300 text-base uppercase tracking-wide border-b border-slate-700 pb-2">Guida alla lettura comparata della cartina</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-blue-400 mr-2 font-bold">•</span>
-                            <span><strong>Cosa cambia tra i due assetti:</strong> La cartina evidenzia il passaggio da un dominio ancora esteso dell'Impero ottomano e regni balcanici limitati (1878) a una radicale spartizione regionale (1913) in cui l'Impero ottomano scompare quasi del tutto dai Balcani.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-400 mr-2 font-bold">•</span>
-                            <span><strong>Arretramento dell'Impero ottomano:</strong> Nel 1878 Istanbul controllava vaste porzioni della Rumelia e della Macedonia; nel 1913 il dominio ottomano è confinato alla sola estremità orientale della Tracia (Istanbul e dintorni).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-400 mr-2 font-bold">•</span>
-                            <span><strong>Espansione serba e greca:</strong> A seguito delle guerre balcaniche, la Serbia e la Grecia si ingrandiscono notevolmente a scapito della Macedonia, raddoppiando quasi i propri territori originari e acuendo la pressione sui confini asburgici.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-400 mr-2 font-bold">•</span>
-                            <span><strong>Nascita dell'Albania (1912-1914):</strong> Tra il 1912 e il 1914 sorge il nuovo Stato indipendente albanese, voluto dai governi austro-ungarico e italiano per interdire alla Serbia l'accesso marittimo all'Adriatico, bloccandone le ambizioni egemoniche.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<text x="208" y="124" font-size="11.5" font-weight="600" text-anchor="end">Somme: Britannici*</text>
+<rect x="220" y="112" width="306.2" height="16" rx="2" fill="var(--c-dead)"/>
+<text x="535" y="125" class="mono-num" fill="var(--c-dead)">circa 95.700 (morti o dispersi)</text>
 
-        <!-- Sezione 5 -->
-        <section id="tensioni" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12 transition-all hover:shadow-md">
-            <div class="flex items-center space-x-3 mb-6">
-                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-academic-900 text-white font-bold text-lg">5</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-academic-900">Le tensioni fra Serbia e impero austro-ungarico e l'effetto domino</h2>
-            </div>
-            <div class="prose-academic text-slate-700 text-base md:text-lg">
-                <p>
-                    All'indomani delle guerre balcaniche, la Serbia emerse come la nazione nettamente più forte e ambiziosa dell'area, alimentando il programma politico nazionalista della <strong>"Grande Serbia"</strong>: l'obiettivo strategico di riunire in un unico Stato tutti i serbi della penisola, inclusi quelli residenti all'interno dei confini dell'impero austro-ungarico. Fortemente sostenuta dal governo russo, la Serbia divenne il punto di riferimento dell'irredentismo slavo meridionale.
-                </p>
-                <p>
-                    Si delineò così uno scontro frontale e inconciliabile tra il nazionalismo espansionista serbo e la conservazione imperiale asburgica. Inserite nel rigido <strong>sistema di alleanze</strong> europeo (Triplice Intesa da un lato, Triplice Alleanza dall'altro), queste tensioni locali avevano esaurito qualsiasi margine di mediazione diplomatica. L'intreccio tra impegni militari vincolanti, mobilitazioni preventive e calcoli strategici cinici avrebbe innescato, nell'estate del 1914, quel micidiale <strong>effetto domino</strong> capace di precipitare l'intero continente europeo nel primo conflitto mondiale.
-                </p>
-            </div>
-        </section>
+<text x="208" y="156" font-size="11.5" font-weight="600" text-anchor="end">Somme: Francesi*</text>
+<rect x="220" y="144" width="162.2" height="16" rx="2" fill="var(--c-dead)"/>
+<text x="390" y="157" class="mono-num" fill="var(--c-dead)">circa 50.700 (morti o dispersi)</text>
 
-        <section id="timeline" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <h3 class="text-2xl md:text-3xl font-bold text-academic-900">Linea del tempo degli eventi chiave</h3>
-                <p class="text-slate-600 text-sm mt-2">Cronologia essenziale degli snodi storici balcanici (1878 - 1914)</p>
-            </div>
+<text x="208" y="184" font-size="11.5" font-weight="600" text-anchor="end" fill="#888">Somme: Tedeschi</text>
+<rect x="220" y="174" width="400" height="15" fill="#f4f1ea" stroke="#d5cebe" stroke-dasharray="4 3" rx="2"/>
+<text x="230" y="185" font-size="10.5" font-weight="600" fill="#a03232">⚠ dato separato non disponibile in modo affidabile</text>
+</svg>
+<div class="footnote">* «Morti o dispersi»: include dispersi presunti morti, quindi non è un conteggio di soli caduti accertati.</div>
+<div style="margin-top:10px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#fff8f8;border:1px solid #fecaca;border-radius:4px;padding:10px 14px">
+<span class="missing-data-badge">AVVISO METODOLOGICO SULLA SOMME</span>
+<span style="font-size:12px;color:#7f1d1d;line-height:1.4;flex:1;min-width:240px"><strong>Per i tedeschi alla Somme non esiste un dato affidabile separato sui caduti:</strong> le fonti danno solo le perdite complessive (circa 435.000–500.000). A Verdun i morti sono invece stimati: <strong>circa 300.000 in totale</strong> (francesi + tedeschi).</span>
+</div>
+</div>
 
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div class="bg-academic-50 p-5 rounded-xl border border-slate-200 hover:border-academic-accent transition-all">
-                    <span class="text-academic-accent font-bold text-lg">1878</span>
-                    <h4 class="font-bold text-slate-900 mt-1 text-sm">Congresso di Berlino</h4>
-                    <p class="text-xs text-slate-600 mt-2">Indipendenza di Romania, Serbia, Montenegro e amministrazione austriaca della Bosnia.</p>
-                </div>
-                <div class="bg-academic-50 p-5 rounded-xl border border-slate-200 hover:border-academic-accent transition-all">
-                    <span class="text-academic-accent font-bold text-lg">1908</span>
-                    <h4 class="font-bold text-slate-900 mt-1 text-sm">Crisi Bosniaca</h4>
-                    <p class="text-xs text-slate-600 mt-2">Annessione unilaterale della Bosnia-Erzegovina da parte dell'Austria-Ungheria.</p>
-                </div>
-                <div class="bg-academic-50 p-5 rounded-xl border border-slate-200 hover:border-academic-accent transition-all">
-                    <span class="text-academic-accent font-bold text-lg">1912</span>
-                    <h4 class="font-bold text-slate-900 mt-1 text-sm">Prima Guerra Balcanica & Albania</h4>
-                    <p class="text-xs text-slate-600 mt-2">La Lega balcanica sconfigge l'Impero ottomano; proclamazione dell'indipendenza albanese.</p>
-                </div>
-                <div class="bg-academic-50 p-5 rounded-xl border border-slate-200 hover:border-academic-accent transition-all">
-                    <span class="text-academic-accent font-bold text-lg">1913</span>
-                    <h4 class="font-bold text-slate-900 mt-1 text-sm">Seconda Guerra Balcanica</h4>
-                    <p class="text-xs text-slate-600 mt-2">Conflitto per la Macedonia, sconfitta della Bulgaria e ridefinizione dei confini regionali.</p>
-                </div>
-                <div class="bg-academic-50 p-5 rounded-xl border border-slate-200 hover:border-academic-accent transition-all">
-                    <span class="text-academic-accent font-bold text-lg">1914</span>
-                    <h4 class="font-bold text-slate-900 mt-1 text-sm">Attentato di Sarajevo & Scoppio WWI</h4>
-                    <p class="text-xs text-slate-600 mt-2">L'effetto domino delle alleanze trascina l'Europa nella Prima guerra mondiale.</p>
-                </div>
-            </div>
-        </section>
+<div class="section-title"><span>3. Approfondimenti: tempo e spazio del massacro</span></div>
 
-        <section id="glossario" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
-            <div class="max-w-2xl mx-auto text-center mb-8">
-                <h3 class="text-2xl md:text-3xl font-bold text-academic-900">Glossario dei termini storiografici</h3>
-                <p class="text-slate-600 text-sm mt-2">Definizioni analitiche dei concetti chiave della trattazione</p>
-            </div>
+<div class="focus-grid">
+<div class="focus-card">
+<div>
+<h3>Il primo giorno della Somme</h3>
+<div style="font-size:11px;color:var(--text-muted);font-family:'JetBrains Mono',monospace">1° LUGLIO 1916 · ESERCITO BRITANNICO</div>
+<div style="margin:12px 0 10px">
+<div style="font-size:12px;color:#444">Perdite totali in un giorno:</div>
+<div class="focus-metric" style="color:#2b3036">57.470</div>
+<div style="font-size:12px;color:var(--c-dead);margin-top:4px">di cui morti: <strong>19.240</strong></div>
+</div>
+<div style="background:#fbfaf8;border:1px solid var(--border);border-radius:4px;padding:10px;margin:10px 0">
+<div style="font-size:10.5px;font-weight:600;color:#555;margin-bottom:6px;display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap">
+<span>1 icona = circa 1.000 uomini</span>
+<span style="color:var(--c-dead)">19 caduti / 38 altre perdite</span>
+</div>
+<svg viewBox="0 0 280 84" class="svg-container" aria-label="57 icone: 19 morti e 38 altre perdite">
+<defs>
+<g id="s"><circle cx="5" cy="3.5" r="2.2"/><path d="M2 8C2 6.5 8 6.5 8 8L8 13L6.5 13L6.5 18L3.5 18L3.5 13L2 13Z"/></g>
+</defs>
+<g fill="var(--c-dead)">
+<use href="#s" x="2" y="2"/><use href="#s" x="30" y="2"/><use href="#s" x="58" y="2"/><use href="#s" x="86" y="2"/><use href="#s" x="114" y="2"/><use href="#s" x="142" y="2"/><use href="#s" x="170" y="2"/><use href="#s" x="198" y="2"/><use href="#s" x="226" y="2"/><use href="#s" x="254" y="2"/>
+<use href="#s" x="2" y="22"/><use href="#s" x="30" y="22"/><use href="#s" x="58" y="22"/><use href="#s" x="86" y="22"/><use href="#s" x="114" y="22"/><use href="#s" x="142" y="22"/><use href="#s" x="170" y="22"/><use href="#s" x="198" y="22"/><use href="#s" x="226" y="22"/>
+</g>
+<g fill="var(--c-losses-other)">
+<use href="#s" x="254" y="22"/>
+<use href="#s" x="2" y="42"/><use href="#s" x="30" y="42"/><use href="#s" x="58" y="42"/><use href="#s" x="86" y="42"/><use href="#s" x="114" y="42"/><use href="#s" x="142" y="42"/><use href="#s" x="170" y="42"/><use href="#s" x="198" y="42"/><use href="#s" x="226" y="42"/><use href="#s" x="254" y="42"/>
+<use href="#s" x="2" y="62"/><use href="#s" x="30" y="62"/><use href="#s" x="58" y="62"/><use href="#s" x="86" y="62"/><use href="#s" x="114" y="62"/><use href="#s" x="142" y="62"/><use href="#s" x="170" y="62"/><use href="#s" x="198" y="62"/><use href="#s" x="226" y="62"/><use href="#s" x="254" y="62"/>
+</g>
+</svg>
+</div>
+</div>
+<div class="focus-desc" style="background:#fff2f4;border:1px solid #fecdd3;padding:8px 10px;border-radius:3px">
+<strong style="color:var(--c-dead);font-size:13px;display:block;margin-bottom:2px">Il giorno più sanguinoso dell'esercito britannico</strong>
+L'assalto contro difese tedesche in gran parte intatte costò oltre 19.000 morti in poche ore.
+</div>
+</div>
 
-            <div class="space-y-4 max-w-3xl mx-auto">
-                <details class="group bg-academic-50 rounded-xl border border-slate-200 p-5 cursor-pointer transition-all">
-                    <summary class="flex justify-between items-center font-semibold text-academic-900 text-base">
-                        <span>Irredentismo</span>
-                        <span class="transition-transform group-open:rotate-180 text-academic-accent">▼</span>
-                    </summary>
-                    <p class="text-sm text-slate-700 mt-3 leading-relaxed">
-                        Movimento politico e culturale volto a ottenere l'annessione alla propria madrepatria di territori abitati da minoranze linguistiche e culturali connazionali ma soggetti al dominio di un altro Stato. Nei Balcani fu motore fondamentale delle rivendicazioni serbe contro l'impero asburgico.
-                    </p>
-                </details>
+<div class="focus-card">
+<div>
+<h3>Il prezzo di un metro</h3>
+<div style="font-size:11px;color:var(--text-muted);font-family:'JetBrains Mono',monospace">OFFENSIVA DELLA SOMME</div>
+<div class="focus-metric">≈ 89 <span style="font-size:15px;font-weight:400;color:var(--text-muted)">perdite per metro</span></div>
+<p class="focus-desc" style="margin-bottom:12px">Avanzata alleata massima in quasi cinque mesi: <strong style="color:#111;font-family:'JetBrains Mono'">circa 10 – 11 km</strong>. Il valore è un ordine di grandezza (circa 1 milione di perdite alleate e tedesche diviso per l'avanzata), non una misura esatta.</p>
+<svg viewBox="0 0 280 110" class="svg-container" style="background:#fbfaf8;border:1px solid var(--border);border-radius:4px">
+<line x1="20" y1="40" x2="260" y2="40" stroke="#222" stroke-width="2"/>
+<line x1="20" y1="30" x2="20" y2="50" stroke="#222" stroke-width="2"/>
+<line x1="260" y1="30" x2="260" y2="50" stroke="#222" stroke-width="2"/>
+<text x="140" y="26" font-size="11" font-weight="700" text-anchor="middle">1 METRO DI TERRENO</text>
+<rect x="22" y="44" width="236" height="34" fill="#ede8df" rx="2"/>
+<g stroke="var(--c-losses-other)" stroke-width="1.5" id="bars"></g>
+<text x="140" y="96" font-size="9" fill="#555" text-anchor="middle">Rappresentazione simbolica: 1 tratto = 1 perdita</text>
+</svg>
+</div>
+<div class="focus-desc" style="margin-top:10px">Un guadagno quasi impercettibile sulle carte strategiche, pagato con oltre un milione di perdite complessive.</div>
+</div>
 
-                <details class="group bg-academic-50 rounded-xl border border-slate-200 p-5 cursor-pointer transition-all">
-                    <summary class="flex justify-between items-center font-semibold text-academic-900 text-base">
-                        <span>Panslavismo</span>
-                        <span class="transition-transform group-open:rotate-180 text-academic-accent">▼</span>
-                    </summary>
-                    <p class="text-sm text-slate-700 mt-3 leading-relaxed">
-                        Movimento ideologico e politico sviluppatosi nel XIX secolo con l'obiettivo di unire culturalmente e politicamente tutti i popoli di stirpe slava. Sfruttato dall'Impero russo come strumento di proiezione imperiale e di tutela geopolitica sui Balcani slavi.
-                    </p>
-                </details>
+<div class="focus-card">
+<div>
+<h3>Ogni giorno a Verdun</h3>
+<div style="font-size:11px;color:var(--text-muted);font-family:'JetBrains Mono',monospace">MEDIA SU 302 GIORNI</div>
+<div class="focus-metric" style="color:var(--c-dead)">≈ 1.000 <span style="font-size:15px;font-weight:400">morti al giorno</span></div>
+<div style="font-family:'JetBrains Mono';font-size:14px;font-weight:700;color:#374151;margin-bottom:10px">≈ 2.300 – 2.500 <span style="font-size:12px;font-weight:400;color:var(--text-muted)">perdite/giorno</span></div>
+<svg viewBox="0 0 280 85" class="svg-container" style="background:#fbfaf8;border:1px solid var(--border);border-radius:4px">
+<rect x="15" y="15" width="250" height="26" rx="4" fill="#ddd"/>
+<rect x="15" y="15" width="104" height="26" rx="4" fill="var(--c-dead)"/>
+<text x="67" y="32" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">1.000 morti</text>
+<text x="192" y="32" font-size="10" font-weight="600" fill="#333" text-anchor="middle">1.300–1.500 altre perdite</text>
+<text x="140" y="60" font-size="10" fill="#333" text-anchor="middle">Giorno e notte, per dieci mesi consecutivi</text>
+<text x="140" y="74" font-size="9" fill="#777" text-anchor="middle">(21 febbraio – 18 dicembre 1916)</text>
+</svg>
+</div>
+<div class="focus-desc" style="margin-top:10px">L'idea del comando tedesco era «dissanguare» l'esercito francese: Verdun divenne una delle più lunghe battaglie di logoramento della storia.</div>
+</div>
+</div>
 
-                <details class="group bg-academic-50 rounded-xl border border-slate-200 p-5 cursor-pointer transition-all">
-                    <summary class="flex justify-between items-center font-semibold text-academic-900 text-base">
-                        <span>Questione balcanica</span>
-                        <span class="transition-transform group-open:rotate-180 text-academic-accent">▼</span>
-                    </summary>
-                    <p class="text-sm text-slate-700 mt-3 leading-relaxed">
-                        Complesso e instabile insieme di problemi politici, territoriali, nazionalistici ed economici legati al progressivo dissolvimento dell'impero ottomano nella penisola balcanica e alla conseguente competizione tra le potenze europee per il controllo della regione.
-                    </p>
-                </details>
+<div class="section-title"><span>4. Distruzione materiale e innovazione bellica</span></div>
 
-                <details class="group bg-academic-50 rounded-xl border border-slate-200 p-5 cursor-pointer transition-all">
-                    <summary class="flex justify-between items-center font-semibold text-academic-900 text-base">
-                        <span>Grande Serbia</span>
-                        <span class="transition-transform group-open:rotate-180 text-academic-accent">▼</span>
-                    </summary>
-                    <p class="text-sm text-slate-700 mt-3 leading-relaxed">
-                        Progetto politico nazionalista serbo mirante alla costituzione di uno Stato unitario esteso a tutti i territori della penisola balcanica abitati da popolazioni serbe, scavalcando i confini storici e imperiali esistenti, in particolare quelli asburgici.
-                    </p>
-                </details>
+<div class="context-strip">
+<div class="context-item"><div class="ci-num" style="color:var(--c-accent)">10 – 60 milioni</div><div class="ci-label"><strong>Proiettili a Verdun:</strong> forchetta ampia, dipende da cosa si conta (solo grossi calibri o tutto il munizionamento).</div></div>
+<div class="context-item"><div class="ci-num">9 villaggi distrutti</div><div class="ci-label"><strong>Verdun:</strong> sei di essi (tra cui Fleury e Vaux) non furono mai ricostruiti e sono detti «villages morts pour la France».</div></div>
+<div class="context-item"><div class="ci-num">1.732.873 proiettili</div><div class="ci-label"><strong>Somme:</strong> sparati dall'artiglieria britannica nella settimana di bombardamento preparatorio.</div></div>
+<div class="context-item"><div class="ci-num" style="color:var(--c-british)">circa 30 carri armati</div><div class="ci-label"><strong>15 settembre 1916 (Flers-Courcelette):</strong> primo impiego dei carri armati (Mark I); ne erano stati assegnati 49, ma solo una trentina raggiunse la linea di partenza.</div></div>
+</div>
 
-                <details class="group bg-academic-50 rounded-xl border border-slate-200 p-5 cursor-pointer transition-all">
-                    <summary class="flex justify-between items-center font-semibold text-academic-900 text-base">
-                        <span>Sistema delle alleanze</span>
-                        <span class="transition-transform group-open:rotate-180 text-academic-accent">▼</span>
-                    </summary>
-                    <p class="text-sm text-slate-700 mt-3 leading-relaxed">
-                        Architettura diplomatico-militare costruita tra la fine del XIX e l'inizio del XX secolo in Europa, fondata su blocchi contrapposti (Triplice Alleanza e Triplice Intesa), i cui vincoli di mutua difesa trasformarono un conflitto regionale in una guerra di portata globale.
-                    </p>
-                </details>
-            </div>
-        </section>
+<footer>
+<div class="methodology-text">
+<strong style="color:#1f2429;font-size:11px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px">Nota metodologica</strong>
+Le cifre del 1916 sono stime storiche: variano secondo le fonti, i registri dell'epoca e la definizione di «perdite», che include feriti poi rientrati al fronte, prigionieri e dispersi mai identificati.
+</div>
+<div>
+<strong style="color:#1f2429;font-size:11px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:6px">Fonti di riferimento</strong>
+<div class="sources-list">
+<span class="source-tag">Imperial War Museums</span><span class="source-tag">Mémorial de Verdun</span><span class="source-tag">Encyclopaedia Britannica</span><span class="source-tag">National Army Museum</span><span class="source-tag">Le Monde – Les Décodeurs</span>
+</div>
+</div>
+</footer>
 
-        <section id="verifica" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
-            <div class="max-w-2xl mx-auto text-center mb-8">
-                <span class="text-xs uppercase tracking-widest text-amber-600 font-semibold">Area Didattica</span>
-                <h3 class="text-2xl md:text-3xl font-bold text-academic-900 mt-1">Verifica formativa delle competenze</h3>
-                <p class="text-slate-600 text-sm mt-2">Test a scelta multipla con riscontro motivato per il ripasso accademico</p>
-            </div>
-
-            <div id="quiz-container" class="space-y-8 max-w-3xl mx-auto">
-                <!-- Domanda 1 -->
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200" data-question="1">
-                    <p class="font-semibold text-slate-900 mb-4">1. Quale fu la conseguenza geopolitica principale del Congresso di Berlino (1878) riguardo alla Bosnia-Erzegovina?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q1" value="a" class="mt-1">
-                            <span class="text-sm text-slate-700">L'annessione formale e definitiva all'Impero russo.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q1" value="b" class="mt-1">
-                            <span class="text-sm text-slate-700">L'attribuzione all'impero austro-ungarico dell'amministrazione temporanea della regione.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q1" value="c" class="mt-1">
-                            <span class="text-sm text-slate-700">La piena e incondizionata indipendenza della Bosnia come regno sovrano.</span>
-                        </label>
-                    </div>
-                    <div class="feedback-box mt-4 hidden text-xs p-3 rounded-lg"></div>
-                </div>
-
-                <!-- Domanda 2 -->
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200" data-question="2">
-                    <p class="font-semibold text-slate-900 mb-4">2. Quale evento scatenò la crisi bosniaca del 1908?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q2" value="a" class="mt-1">
-                            <span class="text-sm text-slate-700">L'annessione unilaterale della Bosnia-Erzegovina da parte dell'Austria-Ungheria.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q2" value="b" class="mt-1">
-                            <span class="text-sm text-slate-700">L'invasione della Bosnia da parte dell'esercito della Serbia.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q2" value="c" class="mt-1">
-                            <span class="text-sm text-slate-700">La riconquista militare ottomana di Sarajevo.</span>
-                        </label>
-                    </div>
-                    <div class="feedback-box mt-4 hidden text-xs p-3 rounded-lg"></div>
-                </div>
-
-                <!-- Domanda 3 -->
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200" data-question="3">
-                    <p class="font-semibold text-slate-900 mb-4">3. Quale fu l'esito principale della prima guerra balcanica (1912-1913)?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q3" value="a" class="mt-1">
-                            <span class="text-sm text-slate-700">La restaurazione integrale del dominio ottomano su tutta la penisola.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q3" value="b" class="mt-1">
-                            <span class="text-sm text-slate-700">La sconfitta della Lega balcanica e l'espansione della Bulgaria in Europa centrale.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q3" value="c" class="mt-1">
-                            <span class="text-sm text-slate-700">La quasi totale espulsione dell'impero ottomano dai territori europei ad opera della Lega balcanica.</span>
-                        </label>
-                    </div>
-                    <div class="feedback-box mt-4 hidden text-xs p-3 rounded-lg"></div>
-                </div>
-
-                <!-- Domanda 4 -->
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200" data-question="4">
-                    <p class="font-semibold text-slate-900 mb-4">4. Per quale motivo strategico nacque lo Stato indipendente dell'Albania (1912-1914)?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q4" value="a" class="mt-1">
-                            <span class="text-sm text-slate-700">Per impedire alla Serbia di ottenere uno sbocco marittimo sul mare Adriatico.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q4" value="b" class="mt-1">
-                            <span class="text-sm text-slate-700">Per consentire alla Russia una base navale permanente nel Mediterraneo.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q4" value="c" class="mt-1">
-                            <span class="text-sm text-slate-700">Per risarcire l'Impero ottomano della perdita della Macedonia.</span>
-                        </label>
-                    </div>
-                    <div class="feedback-box mt-4 hidden text-xs p-3 rounded-lg"></div>
-                </div>
-
-                <!-- Domanda 5 -->
-                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200" data-question="5">
-                    <p class="font-semibold text-slate-900 mb-4">5. Cosa si intendeva con il programma politico della "Grande Serbia"?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q5" value="a" class="mt-1">
-                            <span class="text-sm text-slate-700">L'alleanza militare permanente con l'Impero ottomano in funzione anti-austriaca.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q5" value="b" class="mt-1">
-                            <span class="text-sm text-slate-700">La riunificazione in un unico Stato di tutte le popolazioni serbe della penisola, incluse quelle asburgiche.</span>
-                        </label>
-                        <label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white cursor-pointer border border-transparent hover:border-slate-200 transition-all">
-                            <input type="radio" name="q5" value="c" class="mt-1">
-                            <span class="text-sm text-slate-700">La cessione pacifica della Bosnia alla Russia attraverso trattati diplomatici.</span>
-                        </label>
-                    </div>
-                    <div class="feedback-box mt-4 hidden text-xs p-3 rounded-lg"></div>
-                </div>
-
-                <div class="text-center pt-4">
-                    <button id="submit-quiz" class="px-8 py-3 bg-academic-900 text-white font-medium rounded-xl hover:bg-slate-800 transition-all shadow-md">
-                        Valuta Risposte
-                    </button>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Modal for Image Zoom -->
-    <div id="image-modal" class="fixed inset-0 z-50 bg-black/80 hidden flex items-center justify-center p-4" onclick="closeImageModal()">
-        <div class="relative max-w-5xl max-h-[90vh]">
-            <button class="absolute -top-10 right-0 text-white text-xl font-bold bg-slate-800 px-3 py-1 rounded-full hover:bg-slate-700">✕ Chiudi</button>
-            <img id="modal-img" src="" alt="Cartina ingrandita" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain">
-        </div>
-    </div>
-
-    <footer class="bg-academic-900 text-slate-400 py-12 mt-20 border-t border-slate-800 text-center text-sm">
-        <div class="max-w-6xl mx-auto px-6">
-            <p class="mb-2 font-semibold text-slate-300">Modulo didattico digitale • Storia Contemporanea</p>
-            <p>Riflessione storiografica avanzata sui Balcani alla vigilia della Prima guerra mondiale.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Image modal lightbox functions
-        function openImageModal(src) {
-            const modal = document.getElementById('image-modal');
-            const modalImg = document.getElementById('modal-img');
-            modalImg.src = src;
-            modal.classList.remove('hidden');
-        }
-
-        function closeImageModal() {
-            const modal = document.getElementById('image-modal');
-            modal.classList.add('hidden');
-        }
-
-        // Quiz evaluation logic
-        document.getElementById('submit-quiz').addEventListener('click', function() {
-            const answers = {
-                q1: { correct: 'b', explanation: 'Esatto! Il Congresso di Berlino (1878) affidò all\'Austria-Ungheria l\'amministrazione temporanea della Bosnia-Erzegovina, pur mantenendo la sovranità nominale ottomana.' },
-                q2: { correct: 'a', explanation: 'Esatto! La crisi bosniaca fu provocata nel 1908 dall\'annessione unilaterale della Bosnia-Erzegovina da parte dell\'Austria-Ungheria.' },
-                q3: { correct: 'c', explanation: 'Esatto! La prima guerra balcanica vide la Lega balcanica sconfiggere l\'Impero ottomano e costringerlo a cedere quasi tutti i territori europei.' },
-                q4: { correct: 'a', explanation: 'Esatto! L\'Albania nacque soprattutto per volontà di Vienna e Roma per impedire alla Serbia di acquisire uno sbocco marittimo sull\'Adriatico.' },
-                q5: { correct: 'b', explanation: 'Esatto! La "Grande Serbia" mirava a riunire in un unico Stato tutte le popolazioni serbe della penisola, scontrandosi direttamente con l\'Impero asburgico.' }
-            };
-
-            let score = 0;
-            let total = Object.keys(answers).length;
-
-            for (let q in answers) {
-                const selected = document.querySelector(`input[name="${q}"]:checked`);
-                const container = document.querySelector(`[data-question="${q}"]`);
-                const feedbackBox = container.querySelector('.feedback-box');
-                feedbackBox.classList.remove('hidden');
-
-                if (selected) {
-                    if (selected.value === answers[q].correct) {
-                        score++;
-                        feedbackBox.className = "feedback-box mt-4 text-xs p-3 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-300";
-                        feedbackBox.innerHTML = `<strong>Risposta corretta.</strong> ${answers[q].explanation}`;
-                    } else {
-                        feedbackBox.className = "feedback-box mt-4 text-xs p-3 rounded-lg bg-rose-100 text-rose-800 border border-rose-300";
-                        feedbackBox.innerHTML = `<strong>Risposta errata.</strong> ${answers[q].explanation}`;
-                    }
-                } else {
-                    feedbackBox.className = "feedback-box mt-4 text-xs p-3 rounded-lg bg-amber-100 text-amber-800 border border-amber-300";
-                    feedbackBox.innerHTML = `<strong>Nessuna risposta selezionata.</strong> ${answers[q].explanation}`;
-                }
-            }
-
-            const submitBtn = document.getElementById('submit-quiz');
-            submitBtn.textContent = `Punteggio ottenuto: ${score} / ${total}`;
-        });
-    </script>
+</div>
+<script>
+(function(){var g=document.getElementById('bars');if(!g)return;var h='';
+for(var i=0;i<89;i++){var x=24+i*2.62;h+='<line x1="'+x.toFixed(1)+'" y1="48" x2="'+x.toFixed(1)+'" y2="74" stroke="'+(i%3===0?'var(--c-dead)':'var(--c-losses-other)')+'"/>';}
+g.setAttribute('stroke-width','1.2');g.innerHTML=h;})();
+</script>
 </body>
 </html>
